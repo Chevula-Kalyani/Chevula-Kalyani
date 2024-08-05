@@ -31,16 +31,3 @@ CREATE TABLE Book (
     TotalCopies INT,
     AvailableCopies INT
 );
-
-CREATE TABLE IssueRecord (
-    IssueID INT AUTO_INCREMENT PRIMARY KEY,
-    BookID INT,
-    UserID INT,
-    UserType ENUM('Student', 'Teacher'),
-    IssueDate DATE,
-    DueDate DATE,
-    ReturnDate DATE,
-    FineAmount DECIMAL(10, 2),
-    FOREIGN KEY (BookID) REFERENCES Book(BookID)
-    -- Note: UserID is a bit complex due to mixed UserType, needs application logic for enforcement
-);
